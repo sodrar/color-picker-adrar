@@ -7,11 +7,12 @@ export function App() {
   const [red, setRed] = useState(255);
   const [green, setGreen] = useState(0);
   const [blue, setBlue] = useState(95);
+  const [opacity, setOpacity] = useState(1)
 
   const colorPickStyle = {
     height: 100,
     width: 100,
-    backgroundColor: "rgba(" + red + "," + green + "," + blue + ")",
+    backgroundColor: "rgba(" + red + "," + green + "," + blue + "," + opacity + ")",
     margin: "auto",
     marginBottom: 30
   };
@@ -28,6 +29,10 @@ export function App() {
     setBlue(event.target.value)
   }
 
+  function updateOpacity(event) {
+    setOpacity(event.target.value)
+  }
+
   return (
     <div>
       <h1>Color picker</h1>
@@ -41,6 +46,8 @@ export function App() {
         <input type="range" onInput={updateGreen} min="0" max="255" />
         <span>Blue</span>
         <input type="range" onInput={updateBlue} min="0" max="255" />
+        <span>Opacity :</span>
+        <input type='range' onInput={updateOpacity} min="0" max="1" step="0.01" />
       </div>
     </div>
   )
